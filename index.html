@@ -1,104 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CodeQuest - Programming Learning App</title>
-    <meta
-      name="description"
-      content="Learn programming concepts through AI-generated challenges and track your progress"
-    />
+    <title>ログイン | CodeQuest</title>
     <style>
       body {
-        margin: 0;
-        font-family: "Segoe UI", Arial, sans-serif;
         background: #f8fafc;
-        color: #222;
+        font-family: "Segoe UI", Arial, sans-serif;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
       }
-      .hero {
-        background: linear-gradient(90deg, #00FF00 0%, #00F200 100%);
-        color: #fff;
-        padding: 60px 20px 40px 20px;
+      .login-container {
+        background: #fff;
+        padding: 36px 28px 28px 28px;
+        border-radius: 16px;
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+        width: 100%;
+        max-width: 340px;
         text-align: center;
       }
-      .hero h1 {
-        font-size: 2.5rem;
-        margin-bottom: 16px;
-      }
-      .hero p {
-        font-size: 1.2rem;
-        margin-bottom: 32px;
-      }
-      .cta-btn {
-        background: #fff;
+      .login-container h2 {
+        margin-bottom: 18px;
         color: #2563eb;
+      }
+      .login-form {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .login-form input {
+        padding: 12px;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        font-size: 1rem;
+      }
+      .login-form button {
+        background: #2563eb;
+        color: #fff;
         border: none;
-        padding: 14px 36px;
-        border-radius: 30px;
+        padding: 12px;
+        border-radius: 8px;
         font-size: 1.1rem;
         font-weight: bold;
         cursor: pointer;
-        transition: background 0.2s, color 0.2s;
+        transition: background 0.2s;
       }
-      .cta-btn:hover {
-        background: #2563eb;
-        color: #fff;
+      .login-form button:hover {
+        background: #1e40af;
       }
-      .features {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 32px;
-        margin: 40px 0;
-      }
-      .feature {
-        background: #fff;
-        border-radius: 16px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-        padding: 28px 24px;
-        max-width: 300px;
-        flex: 1 1 220px;
-      }
-      .feature h3 {
-        margin-top: 0;
-        color: #2563eb;
-      }
-      .footer {
-        text-align: center;
-        color: #888;
-        padding: 24px 0 12px 0;
+      .login-footer {
+        margin-top: 18px;
         font-size: 0.95rem;
+        color: #888;
+      }
+      .login-footer a {
+        color: #2563eb;
+        text-decoration: none;
+        margin-left: 4px;
+      }
+      .login-footer a:hover {
+        text-decoration: underline;
       }
     </style>
   </head>
   <body>
-    
-    <div class="hero">
-      <h1>CodeQuestへようこそ！</h1>
-      <p>AIが生成する課題で楽しくプログラミングを学ぼう。<br />進捗も自動で記録されます。</p>
-      <button class="cta-btn" onclick="ctaClick()">今すぐ始める</button>
-    </div>
-    <div class="features">
-      <div class="feature">
-        <h3>AI課題</h3>
-        <p>毎回新しいプログラミング課題を自動生成。飽きずに学習できます。</p>
-      </div>
-      <div class="feature">
-        <h3>進捗管理</h3>
-        <p>自分の成長をグラフで確認。モチベーションもアップ！</p>
-      </div>
-      <div class="feature">
-        <h3>コミュニティ</h3>
-        <p>他の学習者と成果を共有し、切磋琢磨できます。</p>
+    <div class="login-container">
+      <h2>ログイン</h2>
+      <form class="login-form" onsubmit="return handleLogin(event)">
+        <input type="email" id="email" placeholder="メールアドレス" required />
+        <input type="password" id="password" placeholder="パスワード" required />
+        <button type="submit">ログイン</button>
+      </form>
+      <div class="login-footer">
+        アカウントをお持ちでない方は
+        <a href="register.html">新規登録</a>
       </div>
     </div>
-    <div class="footer">&copy; 2025 CodeQuest. All rights reserved.</div>
     <script>
-      function ctaClick() {
-        alert("ご登録・ログインは画面右上からどうぞ！!!---");
+      function handleLogin(e) {
+        e.preventDefault();
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        // デモ用: 実際の認証処理はバックエンドで行ってください
+        if (email && password) {
+          alert("ログインしました！");
+          // location.href = 'index.html'; // 実際は遷移やトークン保存など
+        } else {
+          alert("メールアドレスとパスワードを入力してください");
+        }
+        return false;
       }
     </script>
-    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
