@@ -1,0 +1,69 @@
+
+<html>
+	<head>
+		<title>ログイン画面d</title>
+		
+
+		<style type="text/css">
+
+
+			.LABEL{
+				color:red;
+				margin:0 auto;
+				display:block;
+				text-align:center;
+			}
+			.CONTAINER
+			{
+				width:250px;
+				margin:0 auto;
+				margin-bottom:5px;
+			}
+			.TEXTBOX
+			{
+				width:250px;
+				height:30px;
+				margin-bottom:5px;
+			}
+			.LEFT
+			{
+				float:left;
+			}
+			.RIGHT
+			{
+				float:right;
+			}
+			.BUTTON
+			{
+				width:250px;
+			}
+			.TEXTAREA
+			{
+				width:500px;
+				height:200px;
+				margin:0 auto;
+				display:block;
+				resize:none;
+				clear:both;
+			}
+		</style>
+
+
+	</head>
+<body>
+	<form method="post" action="/OfficeSystem/Login">
+	<label class="LABEL">  ログイン画面  </label>
+	<div class="CONTAINER">
+		<input type="text" class="TEXTBOX" id="userId" name="userId" placeholder="ユーザーID"/>
+		<input type="password" class="TEXTBOX" id="password" name="password" placeholder="パスワード"/>
+		<input type="text" class="TEXTBOX" id="email" name="email" placeholder="メールアドレス"/>
+		<input type="button" class="BUTTON" value="ログイン" />
+		<a href="" class="LEFT" >パスワード忘れ</a>
+		<a href="" class="RIGHT" >新規登録</a>
+	</div>
+	</form>
+	<textarea class="TEXTAREA">お知らせ</textarea>
+</body>
+
+
+</html>
