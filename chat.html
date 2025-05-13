@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Chatページ</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: #f8fafc;
+        margin: 0;
+        padding: 0;
+      }
+      .chat-container {
+        max-width: 500px;
+        margin: 40px auto;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        padding: 24px;
+      }
+      .chat-messages {
+        height: 200px;
+        overflow-y: auto;
+        border: 1px solid #eee;
+        border-radius: 8px;
+        padding: 12px;
+        margin-bottom: 16px;
+        background: #f4f4f4;
+      }
+      .chat-input-area {
+        display: flex;
+        gap: 8px;
+      }
+      .chat-input-area input {
+        flex: 1;
+        padding: 8px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        font-size: 1rem;
+      }
+      .chat-input-area button {
+        padding: 8px 18px;
+        border-radius: 6px;
+        border: none;
+        background: #2563eb;
+        color: #fff;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      .chat-input-area button:hover {
+        background: #1741a6;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chat-container">
+      <h2>チャット</h2>
+      <div class="chat-messages" id="messages"></div>
+      <form class="chat-input-area" id="chatForm" autocomplete="off">
+        <input type="text" id="chatInput" placeholder="メッセージを入力..." required />
+        <button type="submit">送信</button>
+      </form>
+    </div>
+    <script>
+      const form = document.getElementById("chatForm");
+      const input = document.getElementById("chatInput");
+      const messages = document.getElementById("messages");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const text = input.value.trim();
+        if (text) {
+          const msg = document.createElement("div");
+          msg.textContent = text;
+          messages.appendChild(msg);
+          input.value = "";
+          messages.scrollTop = messages.scrollHeight;
+        }
+      });
+    </script>
+  </body>
+</html>
