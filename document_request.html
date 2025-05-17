@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>書類申請システム</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: #f8fafc;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 400px;
+        margin: 40px auto;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        padding: 24px;
+      }
+      h2 {
+        text-align: center;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      input,
+      textarea {
+        padding: 8px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        font-size: 1rem;
+      }
+      button {
+        padding: 8px 18px;
+        border-radius: 6px;
+        border: none;
+        background: #2563eb;
+        color: #fff;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #1741a6;
+      }
+      .message {
+        margin-top: 16px;
+        color: green;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>書類申請システム</h2>
+      <form id="requestForm" autocomplete="off">
+        <input type="text" id="name" placeholder="氏名" required />
+        <textarea id="content" placeholder="申請内容" rows="4" required></textarea>
+        <button type="submit">申請する</button>
+      </form>
+      <div class="message" id="message"></div>
+    </div>
+    <script>
+      const form = document.getElementById("requestForm");
+      const message = document.getElementById("message");
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        message.textContent = "申請を受け付けました";
+        form.reset();
+      });
+    </script>
+  </body>
+</html>
